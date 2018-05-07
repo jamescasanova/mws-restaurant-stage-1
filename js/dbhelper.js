@@ -150,7 +150,13 @@ class DBHelper {
    * Restaurant image URL.
    */
   static imageUrlForRestaurant(restaurant) {
-    return (`/img/${restaurant.photograph}`);
+    var photo = restaurant.photograph;
+    return (`/img/${photo}`);
+  }
+
+  static SrcsetUrlForRestaurant(restaurant) {
+    var photo = restaurant.photograph.slice(0,1);
+    return `/img/webp/${photo}-320-small.webp 320w, /img/webp/${photo}-640-medium.webp 640w, /img/webp/${photo}-1024-large.webp 1024w`;
   }
 
 //  static imageNameForRestaurant(restaurant) {
